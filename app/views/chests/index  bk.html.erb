@@ -1,0 +1,31 @@
+<h1>Listing chests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Price</th>
+      <th>Prize</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chests.each do |chest| %>
+      <tr>
+        <td><%= chest.user_id %></td>
+        <td><%= chest.price %></td>
+        <td><%= chest.prize %></td>
+        <td><%= link_to 'Show', chest %></td>
+        <td><%= link_to 'Edit', edit_chest_path(chest) %></td>
+        <td><%= link_to 'Destroy', chest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Chest', new_chest_path %>
