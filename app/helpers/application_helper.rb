@@ -4,15 +4,15 @@ module ApplicationHelper
 	##############################################################################################
 
   def server_user
-		return "YOUR USER HERE"
+		return "USER"
 	end
 
 	def server_pass
-		return "YOUR SERVER HERE"
+		return "PASS"
   end
 
 	def server_passphrase
-		return "PASSPRASE HERE"
+		return "PASSPH"
 	end
 
 	#create account name and return account address
