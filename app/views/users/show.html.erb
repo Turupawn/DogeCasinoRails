@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+ <font size="6">deposit much credits here, refresh frenzy until done:   <%= @user.deposit_address %>
+</font> 
 <h1>so account</h1>
 
 <p>
@@ -10,6 +12,7 @@
   <strong>such address:</strong>
   <%= @user.address %>
 </p>
+
 <p>
   <strong>deposit much credits here:</strong>
   <%= @user.deposit_address %>
@@ -34,9 +37,47 @@
   <%= getCreditsWon @user %>
 </p>
 <p>
+  <strong>so withdraw:</strong>
+  <%= getWithdraws @user %>
+</p>
+
+<p>
   <strong>wow! have current credits:</strong>
   <%= getAvailableCredits @user %>
 </p>
+
+
+
+<% @withdraw=Withdraw.new %>
+<%= form_for(@withdraw) do |f| %>
+  <% if @withdraw.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@withdraw.errors.count, "error") %> prohibited this withdraw from being saved:</h2>
+
+      <ul>
+      <% @withdraw.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'user', @user.id %>
+
+  <%= hidden_field_tag 'amount', (getAvailableCredits @user) %>
+
+  <div>
+    <h2><%= f.label "pls password, then withdraw" %></h2>
+    <%= password_field :pass, "" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "very withdraw" %>
+  </div>
+<% end %>
+
+
+
 
 
 <% @chest=Chest.new %>
@@ -166,3 +207,22 @@
   </tbody>
 </table>
 
+
+<table>
+  <thead>
+    <tr>
+      <th>much withdrw</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.withdraws.each do |w| %>
+      <tr>
+        <td><%= w.amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

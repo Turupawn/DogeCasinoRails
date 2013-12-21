@@ -4,15 +4,15 @@ module ApplicationHelper
 	##############################################################################################
 
   def server_user
-		return "SERVER NAME HERE"
+		return "YOUR USER HERE"
 	end
 
 	def server_pass
-		return "SERVER PASS HERE"
+		return "YOUR SERVER HERE"
   end
 
 	def server_passphrase
-		return "PASSPHRASE HERE"
+		return "PASSPRASE HERE"
 	end
 
 	#create account name and return account address
@@ -30,7 +30,7 @@ module ApplicationHelper
 
 	#send to address
 	def curlSendToAddress address, prize
-    	system 'curl -u '+server_user+':'+server_pass+' --data-binary \'{"jsonrpc": "1.0", "id":"chuy", "method": "walletpassphrase", "params": ['+server_passphrase+',999] }\' -H \'content-type: text/plain;\' http://localhost:22555'
+    	system 'curl -u '+server_user+':'+server_pass+' --data-binary \'{"jsonrpc": "1.0", "id":"chuy", "method": "walletpassphrase", "params": ["'+server_passphrase+'",999] }\' -H \'content-type: text/plain;\' http://localhost:22555'
 
 	    system 'curl -u '+server_user+':'+server_pass+' --data-binary \'{"jsonrpc": "1.0", "id":"chuy", "method": "sendtoaddress", "params": ["'+address+'",'+prize.to_s+'] }\' -H \'content-type: text/plain;\' http://localhost:22555'
   end
@@ -101,6 +101,14 @@ module ApplicationHelper
     return credits
   end
 
+  def getWithdraws user
+    credits = 0
+    user.withdraws.each do |w|
+      credits+=w.amount
+    end
+    return credits
+  end
+
   def getCreditsWon user
     credits = 0
     user.chests.each do |c|
@@ -110,6 +118,6 @@ module ApplicationHelper
   end
 
   def getAvailableCredits user
-    return (curlGetConfirmedDeposits user.name) - (getCreditsPlayed user)
+    return (curlGetConfirmedDeposits user.name) + (getCreditsWon user) - (getCreditsPlayed user) - (getWithdraws user)
   end
 end

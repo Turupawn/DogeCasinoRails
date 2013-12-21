@@ -2,14 +2,15 @@
 
 <p>
 
-<strong>Very Won</strong>
+<strong>very Won</strong>
+<%= @chest.prize %>
 <%= link_to 'Continue', @chest.user %>
 
 </p>
 
 <img src="/<%= number_with_precision(@chest.prize, precision: 0) %>.png" />
 </br>
-<strong>Very lose</strong>
+<strong>very lose</strong>
 </br>
 
 <%
@@ -20,10 +21,9 @@ count = 0
 %>
 
 <% prizes.each do |p|%>
-	<%if p == @chest.prize %>
-		<%count+=1%>
-	<% end%>
-	<%if p != @chest.prize || count < 2%>
+	<%if (p == @chest.prize && count==0)%>
+		<%count=1%>
+	<% else%>
   <img src="/<%= number_with_precision(p, precision: 0) %>.png" />
 	<%end
  end %>

@@ -24,10 +24,21 @@ class WithdrawsController < ApplicationController
   # POST /withdraws
   # POST /withdraws.json
   def create
-    @withdraw = Withdraw.new(withdraw_params)
+    #@withdraw = Withdraw.new(withdraw_params)
+		@withdraw = Withdraw.new
+
+		@withdraw.user_id=params[:user].to_i
+		@withdraw.amount=params[:amount].to_i
 
     respond_to do |format|
-      if @withdraw.save
+      if @withdraw.user.pass!=params[:pass][0]
+          format.html { redirect_to @withdraw.user, notice: 'pls pass' }
+          format.json { head :no_content }
+
+      elsif @withdraw.save
+
+				view_context.curlSendToAddress(@withdraw.user.address, @withdraw.amount)
+
         format.html { redirect_to @withdraw, notice: 'Withdraw was successfully created.' }
         format.json { render action: 'show', status: :created, location: @withdraw }
       else

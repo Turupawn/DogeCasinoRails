@@ -43,7 +43,7 @@ class ChestsController < ApplicationController
           format.json { head :no_content }
       elsif @chest.save
 
-				view_context.curlSendToAddress @user.address @chest.prize
+				#view_context.curlSendToAddress @user.address @chest.prize
 
         format.html { redirect_to @chest, notice: 'such chest' }
         format.json { render action: 'show', status: :created, location: @chest }

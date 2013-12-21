@@ -26,10 +26,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-		@user.deposit_address = curlCreateNewAccount @user.name
-
     respond_to do |format|
-      if @user.save
+			if User.find_by_name(@user.name)!=nil
+        format.html { redirect_to new_user_path, notice: 'usr exists. pls change' }
+        format.json { render action: 'show', status: :created, location: @user.new }
+      elsif @user.save
+				@user.deposit_address = view_context.curlCreateNewAccount @user.name
+				@user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
