@@ -3,16 +3,20 @@ module ApplicationHelper
 	######################################### Curl calls #########################################
 	##############################################################################################
 
+
   def server_user
-		return "USER"
+		return "dogecoinrpc"
+		#return "USER"
 	end
 
 	def server_pass
-		return "PASS"
+		return "GsUoHBHwGrAvC3RTrGtGPHkfWt1Y6X8wLkCWfJ2vZvnW"
+		#return "PASS"
   end
 
 	def server_passphrase
-		return "PASSPH"
+		return "ChucosPerros1928"
+		#return "PASSPH"
 	end
 
 	#create account name and return account address

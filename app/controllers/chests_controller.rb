@@ -45,7 +45,7 @@ class ChestsController < ApplicationController
 
 				#view_context.curlSendToAddress @user.address @chest.prize
 
-        format.html { redirect_to @chest, notice: 'such chest' }
+        format.html { redirect_to @chest, notice: 'such chestt' }
         format.json { render action: 'show', status: :created, location: @chest }
       else
         format.html { render action: 'new' }
