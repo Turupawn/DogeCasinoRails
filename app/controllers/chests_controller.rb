@@ -28,10 +28,10 @@ class ChestsController < ApplicationController
     @chest = Chest.new
     @user = User.find_by_id(params[:user].to_i)
 
-		@chest.user_id = @user.id
+    @chest.user_id = @user.id
 
     @chest.price=5
-		prizes=[17,10,10,5,5,2,2,1,1,0,0]
+    prizes=[17,10,10,5,5,2,2,1,1,0,0]
     @chest.prize=prizes[rand(11)]
 
     respond_to do |format|
@@ -43,7 +43,7 @@ class ChestsController < ApplicationController
           format.json { head :no_content }
       elsif @chest.save
 
-				#view_context.curlSendToAddress @user.address @chest.prize
+	#view_context.curlSendToAddress @user.address @chest.prize
 
         format.html { redirect_to @chest, notice: 'such chestt' }
         format.json { render action: 'show', status: :created, location: @chest }

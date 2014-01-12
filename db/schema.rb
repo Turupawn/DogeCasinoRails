@@ -13,24 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20131218235713) do
 
-  create_table "bets", force: true do |t|
-    t.string   "user"
-    t.decimal  "bet"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "chests", force: true do |t|
     t.integer  "user_id"
     t.decimal  "price"
     t.decimal  "prize"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "rolls", force: true do |t|
-    t.integer  "user_id"
-    t.decimal  "bet"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -37,7 +37,7 @@
   <%= getCreditsWon @user %>
 </p>
 <p>
-  <strong>so withdraw:</strong>
+  <strong>so withdraw  doges:</strong>
   <%= getWithdraws @user %>
 </p>
 
@@ -50,7 +50,7 @@
 </p>
 
 
-
+<% if (getAvailableCredits @user) >= 2 %>
 
 <% @withdraw=Withdraw.new %>
 <%= form_for(@withdraw) do |f| %>
@@ -71,7 +71,8 @@
   <%= hidden_field_tag 'amount', (getAvailableCredits @user) %>
 
   <div>
-    <h2><%= f.label "pls password, then withdraw" %></h2>
+    <h2><%= f.label "pls password, then withdraw "+(((getAvailableCredits @user).to_i) -1).to_s+" doges" %></h2>
+    (such minimum = 2 /// many tax = 1) <br/>
     <%= password_field :pass, "" %>
   </div>
 
@@ -80,7 +81,7 @@
   </div>
 <% end %>
 
-
+<% end %>
 
 
 

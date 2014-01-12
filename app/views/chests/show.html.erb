@@ -21,11 +21,11 @@ count = 0
 %>
 
 <% prizes.each do |p|%>
-	<%if (p == @chest.prize && count==0)%>
-		<%count=1%>
-	<% else%>
+  <%if (p == @chest.prize && count==0)%>
+    <%count=1%>
+  <% else%>
   <img src="/<%= number_with_precision(p, precision: 0) %>.png" />
-	<%end
- end %>
+  <%end
+end %>
 
 

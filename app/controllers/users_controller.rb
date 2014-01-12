@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     respond_to do |format|
-			if User.find_by_name(@user.name)!=nil
+    if User.find_by_name(@user.name)!=nil || @user.name=="moneymoney" || @user.name=="donations"
         format.html { redirect_to new_user_path, notice: 'usr exists. pls change' }
         format.json { render action: 'show', status: :created, location: @user.new }
       elsif @user.save
