@@ -1,5 +1,8 @@
 DogeMe::Application.routes.draw do
 
+  get "freetoplayuser/suchindex"
+  get "freetoplayuser/verychest"
+
   resources :withdraws
 
   root 'users#new'

@@ -1,0 +1,36 @@
+<% cookies[:credits] = cookies[:credits].to_i - 5 %>
+
+
+<strong>very Won</strong>
+<%
+
+  prizes=[17,10,10,5,5,2,2,1,1,0,0]
+  prize=prizes[rand(11)]
+
+ cookies[:credits] = cookies[:credits].to_i + prize
+%>
+
+<%= prize %>
+<%= link_to 'Continue', "/freetoplayuser/suchindex" %>
+
+</p>
+
+<img src="/<%= number_with_precision(prize, precision: 0) %>.png" />
+</br>
+<strong>very lose</strong>
+</br>
+
+<%
+prizes=[17,10,10,5,5,2,2,1,1,0,0]
+
+count = 0
+
+%>
+
+<% prizes.each do |p|%>
+  <%if (p == prize && count==0)%>
+    <%count=1%>
+  <% else%>
+  <img src="/<%= number_with_precision(p, precision: 0) %>.png" />
+  <%end
+end %>

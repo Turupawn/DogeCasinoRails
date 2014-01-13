@@ -1,0 +1,2 @@
+module FreetoplayuserHelper
+end
