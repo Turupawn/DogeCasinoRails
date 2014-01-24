@@ -5,12 +5,12 @@ module ApplicationHelper
 
 
   def server_user
-    return "chuck"
+    return "dogecoinrpc"
     #return "USER"
   end
 
   def server_pass
-    return "testa"
+    return "GsUoHBHwGrAvC3RTrGtGPHkfWt1Y6X8wLkCWfJ2vZvnW"
     #return "PASS"
   end
 
@@ -21,7 +21,7 @@ module ApplicationHelper
 
   #create account name and return account address
   def curlCreateNewAccount name
-    system 'curl --user '+server_user+':'+server_pass+' --data-binary \'{"jsonrpc": "1.0", "id":"chuy", "method": "getnewaddress", "params": ["'+name+'"] }\' -H \'content-type: text/plain;\' http://localhost:22555 > ~/Projects/DogeCasinoRails/public/'+name+'.html'
+    system 'curl --user '+server_user+':'+server_pass+' --data-binary \'{"jsonrpc": "1.0", "id":"chuy", "method": "getnewaddress", "params": ["'+name+'"] }\' -H \'content-type: text/plain;\' http://localhost:22555 > '+Rails.root.to_s+'/public/'+name+'.html'
 
     file = File.open("public/"+name+".html", "rb")
     contents = file.read
@@ -42,7 +42,7 @@ module ApplicationHelper
   end
 
   def curlGetDeposits name
-    system 'curl --user '+server_user+':'+server_pass+' --data-binary \'{"jsonrpc": "1.0", "id":"chuy", "method": "listtransactions", "params": ["'+name+'",100,0] }\' -H \'content-type: text/plain;\' http://localhost:22555 > ~/Projects/DogeCasinoRails/public/'+name+'.html'
+    system 'curl --user '+server_user+':'+server_pass+' --data-binary \'{"jsonrpc": "1.0", "id":"chuy", "method": "listtransactions", "params": ["'+name+'",100,0] }\' -H \'content-type: text/plain;\' http://localhost:22555 > '+Rails.root.to_s+'/public/'+name+'.html'
 
     file = File.open("public/"+name+".html", "rb")
     contents = file.read
@@ -65,7 +65,7 @@ module ApplicationHelper
 	end
 
   def curlGetConfirmedDeposits name
-    system 'curl --user '+server_user+':'+server_pass+' --data-binary \'{"jsonrpc": "1.0", "id":"chuy", "method": "listtransactions", "params": ["'+name+'",100,0] }\' -H \'content-type: text/plain;\' http://localhost:22555 > ~/Projects/DogeCasinoRails/public/'+name+'.html'
+    system 'curl --user '+server_user+':'+server_pass+' --data-binary \'{"jsonrpc": "1.0", "id":"chuy", "method": "listtransactions", "params": ["'+name+'",100,0] }\' -H \'content-type: text/plain;\' http://localhost:22555 > '+Rails.root.to_s+'/public/'+name+'.html'
 
     file = File.open("public/"+name+".html", "rb")
     contents = file.read
