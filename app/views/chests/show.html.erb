@@ -4,11 +4,20 @@
 
 <strong>very Won</strong>
 <%= @chest.prize %>
+
+<strong>wow! multiplier</strong>
+<%= @chest.multiplier %>
+
 <%= link_to 'Continue', @chest.user %>
 
 </p>
 
-<img src="/<%= number_with_precision(@chest.prize, precision: 0) %>.png" />
+<% i = 0 %>
+  <% while i < @chest.multiplier %>
+    <img src="/<%= number_with_precision(@chest.prize, precision: 0) %>.png" />
+  <% i += 1 %>
+<% end %>
+
 </br>
 <strong>very lose</strong>
 </br>

@@ -29,8 +29,9 @@ class ChestsController < ApplicationController
     @user = User.find_by_id(params[:user].to_i)
 
     @chest.user_id = @user.id
+    @chest.multiplier = params[:multiplier][0].to_i
 
-    @chest.price=5
+    @chest.price=5*@chest.multiplier
     prizes=[17,10,10,5,5,2,2,1,1,0,0]
     @chest.prize=prizes[rand(11)]
 
@@ -38,7 +39,7 @@ class ChestsController < ApplicationController
       if @user.pass!=params[:pass][0]
           format.html { redirect_to @user, notice: 'pls pass' }
           format.json { head :no_content }
-      elsif view_context.getAvailableCredits(@user)<5
+      elsif view_context.getAvailableCredits(@user)<5*@chest.multiplier
           format.html { redirect_to @user, notice: 'pls credit' }
           format.json { head :no_content }
       elsif @chest.save
@@ -86,6 +87,6 @@ class ChestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chest_params
-      params.require(:chest).permit(:user_id, :price, :prize)
+      params.require(:chest).permit(:user_id, :price, :prize, :multiplier)
     end
 end

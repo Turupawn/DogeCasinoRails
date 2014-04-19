@@ -101,11 +101,18 @@
   <% end %>
 
   <%= hidden_field_tag 'user', @user.id %>
-  <%= hidden_field_tag 'multiplier', 1 %>
 
   <div align="center">
     <h1><%= f.label "pls password" %></h1>
     <%= password_field :pass, "" %>
+
+    <h1><%= f.label "wow! multiplier" %></h1>
+    <select name="multiplier[]">
+      <option value="1">x1</option>
+      <option value="2">x2</option>
+      <option value="5">x5</option>
+      <option value="10">x10</option>
+    </select>
   </div>
   <table align="center">
     <% i=0 %>
@@ -136,7 +143,7 @@
   <thead>
     <tr>
       <th>very tresures opened</th>
-      <th></th>
+      <th>wow! multiplier</th>
       <th></th>
       <th></th>
     </tr>
@@ -146,6 +153,11 @@
     <% @user.chests.each do |chest| %>
       <tr>
         <td><%= chest.prize %></td>
+        <% if chest.multiplier != nil %>
+          <td>x<%= chest.multiplier %></td>
+        <% else %>
+          <td>x1</td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -156,8 +168,6 @@
   <thead>
     <tr>
       <th>much withdrw</th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>

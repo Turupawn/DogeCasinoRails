@@ -117,7 +117,11 @@ module ApplicationHelper
   def getCreditsWon user
     credits = 0
     user.chests.each do |c|
-      credits+=c.prize
+      if c.multiplier == nil
+        credits+=c.prize
+      else
+        credits+=c.prize*c.multiplier
+      end
     end
     return credits
   end
