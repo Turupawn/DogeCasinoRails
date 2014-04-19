@@ -108,84 +108,22 @@
     <%= password_field :pass, "" %>
   </div>
   <table align="center">
-    <tr align="center">
+    <% i=0 %>
+    <% while (i<11) %>
+      <% if (i%2 == 0) %>
+        <tr align="center">
+      <% end %>
       <td>
         <img src="/pls_open.png"/>
         <div class="actions">
           <%= f.submit 'do open tresure' %>
         </div>
       </td>
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <%= f.submit 'do open tresure' %>
-        </div>
-      </td>
-    </tr>
-    <tr align="center">
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <%= f.submit 'do open tresure' %>
-        </div>
-      </td>
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <%= f.submit 'do open tresure' %>
-        </div>
-      </td>
-    </tr>
-    <tr align="center">
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <%= f.submit 'do open tresure' %>
-        </div>
-      </td>
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <%= f.submit 'do open tresure' %>
-        </div>
-      </td>
-    </tr>
-    <tr align="center">
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <%= f.submit 'do open tresure' %>
-        </div>
-      </td>
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <%= f.submit 'do open tresure' %>
-        </div>
-      </td>
-    </tr>
-    <tr align="center">
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <%= f.submit 'do open tresure' %>
-        </div>
-      </td>
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <%= f.submit 'do open tresure' %>
-        </div>
-      </td>
-    </tr>
-    <tr align="center">
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <%= f.submit 'do open tresure' %>
-        </div>
-      </td>
-    </tr>
+      <% if (i%2 != 0) %>
+        </tr>
+      <% end %>
+      <% i+=1 %>
+    <% end %>
   <table>
 <% end %>
 
