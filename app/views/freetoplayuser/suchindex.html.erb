@@ -1,0 +1,97 @@
+<% if cookies[:credits] == nil %>
+  <% cookies[:credits] = 100 %>
+<% end %>
+<% if cookies[:credits].to_i <= 0 %>
+  <% cookies[:credits] = 100 %>
+<% end %>
+
+<p>
+<font size=6>
+  wow! have current credits:
+  <%= cookies[:credits].to_i %>
+</font>
+</p>
+
+
+<form action="/freetoplayuser/verychest">
+  <table align="center">
+    <tr align="center">
+      <td>
+        <img src="/pls_open.png"/>
+        <div class="actions">
+          <input type="submit" value="do open tresure">
+        </div>
+      </td>
+      <td>
+        <img src="/pls_open.png"/>
+        <div class="actions">
+          <input type="submit" value="do open tresure">
+        </div>
+      </td>
+    </tr>
+    <tr align="center">
+      <td>
+        <img src="/pls_open.png"/>
+        <div class="actions">
+          <input type="submit" value="do open tresure">
+        </div>
+      </td>
+      <td>
+        <img src="/pls_open.png"/>
+        <div class="actions">
+          <input type="submit" value="do open tresure">
+        </div>
+      </td>
+    </tr>
+    <tr align="center">
+      <td>
+        <img src="/pls_open.png"/>
+        <div class="actions">
+          <input type="submit" value="do open tresure">
+        </div>
+      </td>
+      <td>
+        <img src="/pls_open.png"/>
+        <div class="actions">
+          <input type="submit" value="do open tresure">
+        </div>
+      </td>
+    </tr>
+    <tr align="center">
+      <td>
+        <img src="/pls_open.png"/>
+        <div class="actions">
+          <input type="submit" value="do open tresure">
+        </div>
+      </td>
+      <td>
+        <img src="/pls_open.png"/>
+        <div class="actions">
+          <input type="submit" value="do open tresure">
+        </div>
+      </td>
+    </tr>
+    <tr align="center">
+      <td>
+        <img src="/pls_open.png"/>
+        <div class="actions">
+          <input type="submit" value="do open tresure">
+        </div>
+      </td>
+      <td>
+        <img src="/pls_open.png"/>
+        <div class="actions">
+          <input type="submit" value="do open tresure">
+        </div>
+      </td>
+    </tr>
+    <tr align="center">
+      <td>
+        <img src="/pls_open.png"/>
+        <div class="actions">
+          <input type="submit" value="do open tresure">
+        </div>
+      </td>
+    </tr>
+  <table>
+</form>

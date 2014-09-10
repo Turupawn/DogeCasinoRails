@@ -11,6 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140121162111) do
+
+  create_table "chests", force: true do |t|
+    t.integer  "user_id"
+    t.decimal  "price"
+    t.decimal  "prize"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "multiplier"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "pass"
+    t.string   "address"
+    t.string   "deposit_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "withdraws", force: true do |t|
+    t.integer  "user_id"
+    t.decimal  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -1,3 +1,124 @@
   [1m[36m (3.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
   [1m[35m (16.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 190.53.48.241 at 2014-09-09 21:36:04 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (Migrations are pending; run 'bin/rake db:migrate RAILS_ENV=development' to resolve this issue.):
+  activerecord (4.0.2) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.2) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2097640020312408635__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (58.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20131216075412)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "pass" varchar(255), "address" varchar(255), "deposit_address" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131216075412"]]
+  [1m[36m (6.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateChests (20131217020222)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "chests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "price" decimal, "prize" decimal, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131217020222"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateWithdraws (20131218235713)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "withdraws" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "amount" decimal, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131218235713"]]
+  [1m[36m (15.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddMultiplierToChest (20140121162111)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "chests" ADD "multiplier" integer[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140121162111"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 190.53.48.241 at 2014-09-09 21:36:41 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (146.9ms)
+  Rendered users/new.html.erb within layouts/application (158.8ms)
+Completed 200 OK in 3027ms (Views: 2980.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/home.css?body=1" for 190.53.48.241 at 2014-09-09 21:36:45 +0000
+
+
+Started GET "/assets/application.css?body=1" for 190.53.48.241 at 2014-09-09 21:36:45 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 190.53.48.241 at 2014-09-09 21:36:45 +0000
+
+
+Started GET "/assets/chests.css?body=1" for 190.53.48.241 at 2014-09-09 21:36:45 +0000
+
+
+Started GET "/assets/freetoplayuser.css?body=1" for 190.53.48.241 at 2014-09-09 21:36:45 +0000
+
+
+Started GET "/assets/users.css?body=1" for 190.53.48.241 at 2014-09-09 21:36:45 +0000
+
+
+Started GET "/assets/withdraws.css?body=1" for 190.53.48.241 at 2014-09-09 21:36:45 +0000
+
+
+Started GET "/assets/home.js?body=1" for 190.53.48.241 at 2014-09-09 21:36:46 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 190.53.48.241 at 2014-09-09 21:36:46 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 190.53.48.241 at 2014-09-09 21:36:46 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 190.53.48.241 at 2014-09-09 21:36:46 +0000
+
+
+Started GET "/assets/freetoplayuser.js?body=1" for 190.53.48.241 at 2014-09-09 21:36:46 +0000
+
+
+Started GET "/assets/chests.js?body=1" for 190.53.48.241 at 2014-09-09 21:36:46 +0000
+
+
+Started GET "/assets/withdraws.js?body=1" for 190.53.48.241 at 2014-09-09 21:36:46 +0000
+
+
+Started GET "/assets/users.js?body=1" for 190.53.48.241 at 2014-09-09 21:36:46 +0000
+
+
+Started GET "/assets/application.js?body=1" for 190.53.48.241 at 2014-09-09 21:36:46 +0000

@@ -1,10 +1,23 @@
 Myapp::Application.routes.draw do
-  get "home/index"
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+#  get "home/index"
+#DogeMe::Application.routes.draw do
 
-  # You can have the root of your site routed with "root"
-root to: 'home#index'
+  get "freetoplayuser/suchindex"
+  get "freetoplayuser/verychest"
+
+  resources :withdraws
+
+  root 'users#new'
+
+  resources :chests
+
+  resources :users
+
+  match 'users/:id/suchx2', to: 'users#suchx2', as: 'suchx2', via: [:get, :post]
+
+#root to: 'home#index'
+  # root 'welcome#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,182 @@
+<p id="notice"><%= notice %></p>
+
+ <font size="6">deposit much credits here, refresh frenzy until done:   <%= @user.deposit_address %>
+</font> 
+<h1>so account</h1>
+
+<p>
+  <strong>such name:</strong>
+  <%= @user.name %>
+</p>
+<p>
+  <strong>such address:</strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong>deposit much credits here:</strong>
+  <%= @user.deposit_address %>
+</p>
+
+<h1>have statistics</h1>
+
+<p>
+  <strong>so deposits:</strong>
+  <%= getDeposits @user %>
+</p>
+<p>
+  <strong>many confirmed deposits:</strong>
+  <%= getConfirmedDeposits @user %>
+</p>
+<p>
+  <strong>very played:</strong>
+  <%= getCreditsPlayed @user %>
+</p>
+<p>
+  <strong>delishus won:</strong>
+  <%= getCreditsWon @user %>
+</p>
+<p>
+  <strong>so withdraw  doges:</strong>
+  <%= getWithdraws @user %>
+</p>
+
+
+<p>
+<font size=6>
+  wow! have current credits:
+  <%= getAvailableCredits @user %>
+</font>
+</p>
+
+
+<% if (getAvailableCredits @user) >= 2 %>
+
+<% @withdraw=Withdraw.new %>
+<%= form_for(@withdraw) do |f| %>
+  <% if @withdraw.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@withdraw.errors.count, "error") %> prohibited this withdraw from being saved:</h2>
+
+      <ul>
+      <% @withdraw.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'user', @user.id %>
+
+  <%= hidden_field_tag 'amount', (getAvailableCredits @user) %>
+
+  <div>
+    <h2><%= f.label "pls password, then withdraw "+(((getAvailableCredits @user).to_i) -1).to_s+" doges" %></h2>
+    (such minimum = 2 /// many tax = 1) <br/>
+    <%= password_field :pass, "" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "very withdraw" %>
+  </div>
+<% end %>
+
+<% end %>
+
+
+
+<% @chest=Chest.new %>
+<%= form_for(@chest) do |f| %>
+
+  <% if @chest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chest.errors.count, "error") %> prohibited this chest from being saved:</h2>
+
+      <ul>
+      <% @chest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'user', @user.id %>
+
+  <div align="center">
+    <h1><%= f.label "pls password" %></h1>
+    <%= password_field :pass, "" %>
+
+    <h1><%= f.label "wow! multiplier" %></h1>
+    <select name="multiplier[]">
+      <option value="1">x1</option>
+      <option value="2">x2</option>
+      <option value="5">x5</option>
+      <option value="10">x10</option>
+    </select>
+  </div>
+  <table align="center">
+    <% i=0 %>
+    <% while (i<11) %>
+      <% if (i%2 == 0) %>
+        <tr align="center">
+      <% end %>
+      <td>
+        <img src="/pls_open.png"/>
+        <div class="actions">
+          <%= f.submit 'do open tresure' %>
+        </div>
+      </td>
+      <% if (i%2 != 0) %>
+        </tr>
+      <% end %>
+      <% i+=1 %>
+    <% end %>
+  <table>
+<% end %>
+
+
+
+
+<h1>shibe history</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>very tresures opened</th>
+      <th>wow! multiplier</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.chests.each do |chest| %>
+      <tr>
+        <td><%= chest.prize %></td>
+        <% if chest.multiplier != nil %>
+          <td>x<%= chest.multiplier %></td>
+        <% else %>
+          <td>x1</td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>much withdrw</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.withdraws.each do |w| %>
+      <tr>
+        <td><%= w.amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

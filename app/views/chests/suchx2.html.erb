@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+
+<strong>very Won</strong>
+<%= @chest.prize %>
+<%= link_to 'Continue', @chest.user %>
+
+</p>
+
+<img src="/<%= number_with_precision(@chest.prize, precision: 0) %>.png" />
+</br>
+<strong>very lose</strong>
+</br>
+
+<%
+prizes=[17,10,10,5,5,2,2,1,1,0,0]
+
+count = 0
+
+%>
+
+<% prizes.each do |p|%>
+  <%if (p == @chest.prize && count==0)%>
+    <%count=1%>
+  <% else%>
+  <img src="/<%= number_with_precision(p, precision: 0) %>.png" />
+  <%end
+end %>
+
+
