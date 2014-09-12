@@ -1,7 +1,12 @@
+
 <p id="notice"><%= notice %></p>
 
  <font size="6">deposit much credits here, refresh frenzy until done:   <%= @user.deposit_address %>
 </font> 
+
+<table>
+  <tr>
+    <td>
 <h1>so account</h1>
 
 <p>
@@ -49,6 +54,117 @@
 </font>
 </p>
 
+    </td>
+    <td>
+      <canvas id='canvas' width='600' height='400'>
+         Canvas not supported
+      </canvas>
+
+    <script src = '/canvas_test/sprites.js'></script>
+    <script src = '/canvas_test/shapes.js'></script>
+    <script src = '/canvas_test/requestNextAnimationFrame.js'></script>
+
+    <script>
+var canvas = document.getElementById('canvas'),
+    context = canvas.getContext('2d'),
+    shapes = [],
+
+    polygonStrokeStyles = [ 'blue', 'yellow', 'red'],
+    polygonFillStyles   = [ 'rgba(255,255,0,0.7)',
+                            'rgba(100,140,230,0.6)',
+                            'rgba(255,255,255,0.8)' ],
+
+    mousedown = { x: 0, y: 0 },
+    lastdrag = { x: 0, y: 0 },
+    shapeBeingDragged = undefined;
+
+function windowToCanvas(e) {
+   var x = e.x || e.clientX,
+       y = e.y || e.clientY,
+       bbox = canvas.getBoundingClientRect();
+
+   return { x: x - bbox.left * (canvas.width  / bbox.width),
+            y: y - bbox.top  * (canvas.height / bbox.height)
+          };
+};
+
+function drawShapes() {
+   shapes.forEach( function (shape) {
+      shape.stroke(context);
+      shape.fill(context);
+   });
+}
+
+canvas.onmousedown = function (e) {
+   var location = windowToCanvas(e);
+
+   shapes.forEach( function (shape) {
+      if (shape.isPointInPath(context, location.x, location.y)) {
+         shapeBeingDragged = shape;
+         mousedown.x = location.x;
+         mousedown.y = location.y;
+         lastdrag.x = location.x;
+         lastdrag.y = location.y;
+      }   
+   });
+}
+
+canvas.onmousemove = function (e) {
+   var location,
+       dragVector;
+
+   if (shapeBeingDragged !== undefined) {
+      location = windowToCanvas(e);
+      dragVector = { x: location.x - lastdrag.x,
+                     y: location.y - lastdrag.y
+                   };
+
+      shapeBeingDragged.move(dragVector.x, dragVector.y);
+      
+      lastdrag.x = location.x;
+      lastdrag.y = location.y;
+
+      context.clearRect(0,0,canvas.width,canvas.height);
+      drawShapes();
+      detectCollisions();
+   }
+}
+
+canvas.onmouseup = function (e) {
+   shapeBeingDragged = undefined;
+}
+
+var ballSprite = new Sprite('ball', new ImagePainter('tennis-ball.png'));
+ballSprite.top = 100;
+ballSprite.left = 200;
+ballSprite.width = 79;
+ballSprite.height = 79;
+
+<% for i in 1..20 %>
+  shapes.push(new ImageShape('/canvas_test/dogecoin.png', <%= rand(500) %>, <%= rand(200) %>));
+<% end %>
+
+context.shadowColor = 'rgba(100,140,255,0.5)';
+context.shadowBlur = 4;
+context.shadowOffsetX = 2;
+context.shadowOffsetY = 2;
+context.font = '38px Arial';
+
+drawShapes();
+
+context.save();
+context.fillStyle = 'cornflowerblue';
+context.font = '24px Arial';
+context.fillText('such drag    very shibes', 10, 25);
+context.restore();
+    </script>
+
+
+
+
+    </td>
+  </tr>
+</table>
 
 <% if (getAvailableCredits @user) >= 2 %>
 
