@@ -31,10 +31,16 @@ class UsersController < ApplicationController
         format.html { redirect_to new_user_path, notice: 'usr exists. pls change' }
         format.json { render action: 'show', status: :created, location: @user.new }
       elsif @user.save
-				@user.deposit_address = view_context.curlCreateNewAccount @user.name
-				@user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user }
+        deposit_address=view_context.curlCreateNewAccount @user.name
+        if deposit_address.kind_of?(String)
+          @user.deposit_address = deposit_address
+  	  @user.save
+          format.html { redirect_to @user, notice: 'User was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @user }
+        else
+          format.html { redirect_to new_user_path, notice: 'usr exists. pls change' }
+          format.json { render action: 'show', status: :created, location: @user.new }
+        end
       else
         format.html { render action: 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }

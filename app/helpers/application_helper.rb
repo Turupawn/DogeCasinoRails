@@ -10,15 +10,13 @@ module ApplicationHelper
   end
 
   def server_pass
-    #file = File.open("/home/key/deamon.key", "rb")
-    #return file.read.chomp
-    return "EjJX2kFVLYi1GH6Gncfu1HHXh8TqoF2xMX22UL5ZmHcx"
-    #return "PASS"
+    file = File.open("/home/key/deamon.key", "rb")
+    return file.read.chomp
   end
 
   def server_passphrase
-    return "kb5k3451kjb542k3j45b"
-    #return "PASSPH"
+    file = File.open("/home/key/phrase.key", "rb")
+    return file.read.chomp
   end
 
   #create account name and return account address

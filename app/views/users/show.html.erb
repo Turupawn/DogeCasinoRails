@@ -140,8 +140,27 @@ ballSprite.left = 200;
 ballSprite.width = 79;
 ballSprite.height = 79;
 
-<% for i in 1..20 %>
-  shapes.push(new ImageShape('/canvas_test/dogecoin.png', <%= rand(500) %>, <%= rand(200) %>));
+<%= total_coins = 1352 %>
+
+<%= coins1 = total_coins % 10 %>
+<%= coins10 = ((total_coins-coins1) % 100)/10 %>
+<%= coins100 = ((total_coins-coins1) % 1000)/100 %>
+<%= coins1000 = ((total_coins-coins1))/1000 %>
+
+<% for i in 1..coins1 %>
+  shapes.push(new ImageShape('/canvas_test/coins/1.png', <%= rand(500) %>, <%= rand(200) %>));
+<% end %>
+
+<% for i in 1..coins10 %>
+  shapes.push(new ImageShape('/canvas_test/coins/10.png', <%= rand(500) %>, <%= rand(200) %>));
+<% end %>
+
+<% for i in 1..coins100 %>
+  shapes.push(new ImageShape('/canvas_test/coins/100.png', <%= rand(500) %>, <%= rand(200) %>));
+<% end %>
+
+<% for i in 1..coins1000 %>
+  shapes.push(new ImageShape('/canvas_test/coins/1000.png', <%= rand(500) %>, <%= rand(200) %>));
 <% end %>
 
 context.shadowColor = 'rgba(100,140,255,0.5)';
