@@ -30,6 +30,7 @@ class ChestsController < ApplicationController
 
     @chest.user_id = @user.id
     @chest.multiplier = params[:multiplier][0].to_i
+    session[:multiplier_session]=params[:multiplier][0]
 
     @chest.price=5*@chest.multiplier
     prizes=[17,10,10,5,5,2,2,1,1,0,0]
@@ -43,7 +44,7 @@ class ChestsController < ApplicationController
           format.html { redirect_to @user, notice: 'pls credit' }
           format.json { head :no_content }
       elsif @chest.save
-
+        session[:pass_session]=params[:pass][0]
 	#view_context.curlSendToAddress @user.address @chest.prize
 
         format.html { redirect_to @chest, notice: 'such chestt' }

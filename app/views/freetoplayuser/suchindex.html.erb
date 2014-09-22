@@ -12,86 +12,21 @@
 </font>
 </p>
 
-
 <form action="/freetoplayuser/verychest">
   <table align="center">
-    <tr align="center">
+    <% i=0 %>
+    <% while (i<11) %>
+      <% if (i%2 == 0) %>
+        <tr align="center">
+      <% end %>
       <td>
-        <img src="/pls_open.png"/>
         <div class="actions">
-          <input type="submit" value="do open tresure">
-        </div>
-      </td>
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <input type="submit" value="do open tresure">
-        </div>
-      </td>
-    </tr>
-    <tr align="center">
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <input type="submit" value="do open tresure">
-        </div>
-      </td>
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <input type="submit" value="do open tresure">
-        </div>
-      </td>
-    </tr>
-    <tr align="center">
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <input type="submit" value="do open tresure">
-        </div>
-      </td>
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <input type="submit" value="do open tresure">
-        </div>
-      </td>
-    </tr>
-    <tr align="center">
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <input type="submit" value="do open tresure">
-        </div>
-      </td>
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <input type="submit" value="do open tresure">
-        </div>
-      </td>
-    </tr>
-    <tr align="center">
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <input type="submit" value="do open tresure">
-        </div>
-      </td>
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <input type="submit" value="do open tresure">
-        </div>
-      </td>
-    </tr>
-    <tr align="center">
-      <td>
-        <img src="/pls_open.png"/>
-        <div class="actions">
-          <input type="submit" value="do open tresure">
-        </div>
-      </td>
-    </tr>
-  <table>
+          <input type="image" src="/pls_open.png">
+        </div>      </td>
+      <% if (i%2 != 0) %>
+        </tr>
+      <% end %>
+      <% i+=1 %>
+    <% end %>
+  </table>
 </form>

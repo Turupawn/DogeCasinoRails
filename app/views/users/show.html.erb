@@ -9,10 +9,12 @@
     <td>
 <h1>so account</h1>
 
+<!--
 <p>
   <strong>such name:</strong>
   <%= @user.name %>
 </p>
+-->
 <p>
   <strong>such address:</strong>
   <%= @user.address %>
@@ -27,30 +29,30 @@
 
 <p>
   <strong>so deposits:</strong>
-  <%= getDeposits @user %>
+  <%= getDeposits @user %> Ð
 </p>
 <p>
   <strong>many confirmed deposits:</strong>
-  <%= getConfirmedDeposits @user %>
+  <%= getConfirmedDeposits @user %> Ð
 </p>
 <p>
   <strong>very played:</strong>
-  <%= getCreditsPlayed @user %>
+  <%= getCreditsPlayed @user %> Ð
 </p>
 <p>
   <strong>delishus won:</strong>
-  <%= getCreditsWon @user %>
+  <%= getCreditsWon @user %> Ð
 </p>
 <p>
   <strong>so withdraw  doges:</strong>
-  <%= getWithdraws @user %>
+  <%= getWithdraws @user %> Ð
 </p>
 
 
 <p>
 <font size=6>
   wow! have current credits:
-  <%= getAvailableCredits @user %>
+  <%= getAvailableCredits @user %> Ð
 </font>
 </p>
 
@@ -140,7 +142,7 @@ ballSprite.left = 200;
 ballSprite.width = 79;
 ballSprite.height = 79;
 
-<%= total_coins = 1352 %>
+<%= total_coins = getAvailableCredits @user %>
 
 <%= coins1 = total_coins % 10 %>
 <%= coins10 = ((total_coins-coins1) % 100)/10 %>
@@ -208,7 +210,7 @@ context.restore();
   <div>
     <h2><%= f.label "pls password, then withdraw "+(((getAvailableCredits @user).to_i) -1).to_s+" doges" %></h2>
     (such minimum = 2 /// many tax = 1) <br/>
-    <%= password_field :pass, "" %>
+    <%= password_field :pass, "", :value=>session[:pass_session] %>
   </div>
 
   <div class="actions">
@@ -237,16 +239,17 @@ context.restore();
 
   <%= hidden_field_tag 'user', @user.id %>
 
+
   <div align="center">
     <h1><%= f.label "pls password" %></h1>
-    <%= password_field :pass, "" %>
+    <%= password_field :pass, "", :value=>session[:pass_session] %>
 
     <h1><%= f.label "wow! multiplier" %></h1>
     <select name="multiplier[]">
-      <option value="1">x1</option>
-      <option value="2">x2</option>
-      <option value="5">x5</option>
-      <option value="10">x10</option>
+      <option value="1" <%= "selected" if session[:multiplier_session]=="1"%> >x1</option>
+      <option value="2" <%= "selected" if session[:multiplier_session]=="2"%> >x2</option>
+      <option value="5" <%= "selected" if session[:multiplier_session]=="5"%> >x5</option>
+      <option value="10" <%= "selected" if session[:multiplier_session]=="10"%> >x10</option>
     </select>
   </div>
   <table align="center">
@@ -256,9 +259,8 @@ context.restore();
         <tr align="center">
       <% end %>
       <td>
-        <img src="/pls_open.png"/>
         <div class="actions">
-          <%= f.submit 'do open tresure' %>
+          <%= f.submit 'do open treasure', :type=>"image", :src=>"/pls_open.png" %>
         </div>
       </td>
       <% if (i%2 != 0) %>

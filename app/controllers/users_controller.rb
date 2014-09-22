@@ -27,14 +27,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     respond_to do |format|
-    if User.find_by_name(@user.name)!=nil || @user.name=="moneymoney" || @user.name=="donations"
+      if User.find_by_name(@user.name)!=nil || @user.name=="moneymoney" || @user.name=="donations"
         format.html { redirect_to new_user_path, notice: 'usr exists. pls change' }
         format.json { render action: 'show', status: :created, location: @user.new }
       elsif @user.save
+        @user.name = "suchuser"+@user.id.to_s
         deposit_address=view_context.curlCreateNewAccount @user.name
         if deposit_address.kind_of?(String)
           @user.deposit_address = deposit_address
-  	  @user.save
+          @user.save
+          session[:pass_session]=@user.pass
           format.html { redirect_to @user, notice: 'User was successfully created.' }
           format.json { render action: 'show', status: :created, location: @user }
         else
