@@ -260,7 +260,8 @@ context.restore();
       <% end %>
       <td>
         <div class="actions">
-          <%= f.submit 'do open treasure', :type=>"image", :src=>"/pls_open.png" %>
+<!--          <%= f.submit 'do open treasure', :type=>"image", :src=>"/pls_open.png" %> -->
+        <input id="img_tresure" type="image" src="/pls_open.png" onmouseover="this.src='/pls_open_selected.png'" onmouseout="this.src='/pls_open.png'">
         </div>
       </td>
       <% if (i%2 != 0) %>

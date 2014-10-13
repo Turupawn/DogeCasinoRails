@@ -33,7 +33,7 @@ class ChestsController < ApplicationController
     session[:multiplier_session]=params[:multiplier][0]
 
     @chest.price=5*@chest.multiplier
-    prizes=[17,10,10,5,5,2,2,1,1,0,0]
+    prizes=[10,7,7,6,6,4,4,3,3,3,1]
     @chest.prize=prizes[rand(11)]
 
     respond_to do |format|
