@@ -1,4 +1,14 @@
 module ApplicationHelper
+
+def moveFile source, destination
+
+  require 'fileutils'
+
+  FileUtils.cp(Rails.root.to_s + "/" + source, Rails.root.to_s + "/" + destination)
+
+#  File.rename Rails.root.to_s+'/1.png', Rails.root.to_s+'/public/such_art/2.png'
+end
+
 ##############################################################################################
 ######################################### Curl calls #########################################
 ##############################################################################################
