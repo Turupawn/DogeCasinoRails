@@ -14,6 +14,8 @@ Myapp::Application.routes.draw do
   resources :users
 
   match 'users/:id/suchx2', to: 'users#suchx2', as: 'suchx2', via: [:get, :post]
+#  get '/TheShibeWorld', to: 'home#theshibeworld', as: 'theshibeworld'
+  get '/theshibeworld', to: 'home#theshibeworld', as: 'theshibeworld'
 
 #root to: 'home#index'
   # root 'welcome#index'
