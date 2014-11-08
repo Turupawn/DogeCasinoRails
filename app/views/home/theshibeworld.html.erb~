@@ -11,9 +11,9 @@
     Download the <a href="https://www.themanaworld.org/downloads.php">manaplus client</a>.
   </li>
   <li>
-    Add a new server pointing to 178.62.248.192 and the port 6901.
+    Select The Shibe World.
     <br/>
-    <img width="700" src="/TheShibeWorld/the_shibe_world_images/tuto_add_server.png"/>
+    <img width="700" src="/TheShibeWorld/the_shibe_world_images/tuto_select_server.png"/>
   </li>
   <li>
     Download the patches, register and play!
@@ -57,10 +57,10 @@
 <p>Do The Mana World <a href="https://wiki.themanaworld.org/index.php/Dev:How_to_Develop">How to Develop</a> tutorial using the following repos:</p>
 <ul>
   <li>
-    <a href="git://github.com/rosalila/tmwa.git">git://github.com/rosalila/tmwa.git</a> instead of <a href="git://github.com/themanaworld/tmwa.git">git://github.com/themanaworld/tmwa.git</a>
+    <a href="git://github.com/theshibeworld/tmwa.git">git://github.com/theshibeworld/tmwa.git</a> instead of <a href="git://github.com/themanaworld/tmwa.git">git://github.com/themanaworld/tmwa.git</a>
   </li>
   <li>
-    <a href="git://github.com/rosalila/tmwa-server-data.git">git://github.com/rosalila/tmwa-server-data.git</a> instead of <a href="git://github.com/themanaworld/tmwa-server-data.git">git://github.com/themanaworld/tmwa-server-data.git</a>
+    <a href="git://github.com/theshibeworld/tmwa-server-data.git">git://github.com/theshibeworld/tmwa-server-data.git</a> instead of <a href="git://github.com/themanaworld/tmwa-server-data.git">git://github.com/themanaworld/tmwa-server-data.git</a>
   </li>
 </ul>
 
