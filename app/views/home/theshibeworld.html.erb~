@@ -2,7 +2,7 @@
 <img src="/TheShibeWorld/the_shibe_world_images/cover.png"/>
 
 <h2>What is it?</h2>
-<p>The shibe world is a mmo rpg based on <a href="https://www.themanaworld.org/">The Mana World</a> that accepts dogecoin transactions in-game. The Shibe World is licensed under the <a href="http://www.gnu.org/copyleft/gpl.html">GNU GPL license</a> so you are free to play, share, see the <a href="https://github.com/rosalila/tmwa">source code</a> and modify it as long as it preserves the same license. It is currently under a playable unstable alpha test. Click <a href="http://178.62.248.192/online.html">here</a> to see who is playing right now.</p>
+<p>The shibe world is a mmo rpg based on <a href="https://www.themanaworld.org/">The Mana World</a> that accepts dogecoin transactions in-game. The Shibe World is licensed under the <a href="http://www.gnu.org/copyleft/gpl.html">GNU GPL license</a> so you are free to play, share, see the <a href="https://github.com/theshibeworld/tmwa">source code</a> and modify it as long as it preserves the same license. It is currently under a playable unstable alpha test. Click <a href="http://178.62.248.192/online.html">here</a> to see who is playing right now.</p>
 <img width="700" src="/TheShibeWorld/the_shibe_world_images/screenshot.png"/>
 
 <h2>How to play</h2>
@@ -63,6 +63,28 @@
     <a href="git://github.com/theshibeworld/tmwa-server-data.git">git://github.com/theshibeworld/tmwa-server-data.git</a> instead of <a href="git://github.com/themanaworld/tmwa-server-data.git">git://github.com/themanaworld/tmwa-server-data.git</a>
   </li>
 </ul>
+
+<h2>Donations</h2>
+
+<p>DTG3wuVtKvRJ5FKULzuSqfY66jhAENHpiM</p>
+<img src="<%=asset_path('qrcodes/tsw_donations_general.png')%>"/>
+<p>Such thanks for <%= curlGetDeposits "tsw_donations_general" %> Ðonations!</p>
+
+<p>DEp7ThQS9aK9EkFBEBsh2Tdj9LcRzrBGSa</p>
+<img src="<%=asset_path('qrcodes/tsw_donations_code.png')%>"/>
+<p>Such thanks for <%= curlGetDeposits "tsw_donations_code" %> Ðonations!</p>
+
+<p>DCKPziipnJcYfh9v5PMUBMkQhd3tBtgjbT</p>
+<img src="<%=asset_path('qrcodes/tsw_donations_graphics.png')%>"/>
+<p>Such thanks for <%= curlGetDeposits "tsw_donations_graphics" %> Ðonations!</p>
+
+<p>D66ggvqD36bDnoGE5xs9DZU8rLBenbS5F3</p>
+<img src="<%=asset_path('qrcodes/tsw_donations_quests.png')%>"/>
+<p>Such thanks for <%= curlGetDeposits "tsw_donations_quests" %> Ðonations!</p>
+
+<p>D72sn153S8qHHZuA5Q6GS11FvzCemWW4xg</p>
+<img src="<%=asset_path('qrcodes/tsw_donations_server.png')%>"/>
+<p>Such thanks for <%= curlGetDeposits "tsw_donations_server" %> Ðonations!</p>
 
 <h2>The Mana World</h2>
 <p>The Shibe World is based on The Mana World. Find more about the project on their <a href="https://www.themanaworld.org/">website</a> and support them on <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=232178669">steam greenlight</a>.</p>
