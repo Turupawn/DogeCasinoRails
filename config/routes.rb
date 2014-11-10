@@ -16,6 +16,8 @@ Myapp::Application.routes.draw do
   match 'users/:id/suchx2', to: 'users#suchx2', as: 'suchx2', via: [:get, :post]
 #  get '/TheShibeWorld', to: 'home#theshibeworld', as: 'theshibeworld'
   get '/theshibeworld', to: 'home#theshibeworld', as: 'theshibeworld'
+  get '/crowdfunding', to: 'home#crowdfunding', as: 'crowdfunding'
+
 
 #root to: 'home#index'
   # root 'welcome#index'
