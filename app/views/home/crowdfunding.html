@@ -1,26 +1,49 @@
-<h2>Crowdfunding</h2>
+<h1>The Shibe World Crowdfunding</h2>
+<font size="5">Countdown:<div id="clock"></div></font>
 
-<h3>Let us choose where will the Ðonations go</h3>
-<p>pls donate: DTG3wuVtKvRJ5FKULzuSqfY66jhAENHpiM</p>
-<img src="<%=asset_path('qrcodes/tsw_donations_general.png')%>"/>
-<p>Such thanks for <%= curlGetDeposits "tsw_donations_general" %> Ðonations!</p>
+<script src="/js/jquery.countdown.js"></script>
+<script type="text/javascript">
+$('#clock').countdown('2014/12/1', function(event) {
+  $(this).html(event.strftime('%D days %H:%M:%S'));
+});
+</script>
 
-<h3>Support the coders</h3>
+
+<p>Help getting <a href="https://trello.com/theshibeworld">the todo list</a> done by Ðonating in our crowdfunding.</p>
+<p>The Shibe World is a MMO RPG that accetps Dogecoin transactions in-game click <a href="/theshibeworld">here</a> to find out more.</p>
+
+<table>
+  <tr>
+    <td>
+<h2>Support the coders</h2>
 <p>pls donate: DEp7ThQS9aK9EkFBEBsh2Tdj9LcRzrBGSa</p>
 <img src="<%=asset_path('qrcodes/tsw_donations_code.png')%>"/>
 <p>Such thanks for <%= curlGetDeposits "tsw_donations_code" %> Ðonations!</p>
-
-<h3>Support the graphic designers and map editors</h3>
+    </td>
+    <td>
+<h2>Support the graphic designers and map editors</h2>
 <p>pls donate: DCKPziipnJcYfh9v5PMUBMkQhd3tBtgjbT</p>
 <img src="<%=asset_path('qrcodes/tsw_donations_graphics.png')%>"/>
 <p>Such thanks for <%= curlGetDeposits "tsw_donations_graphics" %> Ðonations!</p>
-
-<h3>Support the history and quest makers</h3>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<h2>Support the history and quest makers</h2>
 <p>pls donate: D66ggvqD36bDnoGE5xs9DZU8rLBenbS5F3</p>
 <img src="<%=asset_path('qrcodes/tsw_donations_quests.png')%>"/>
 <p>Such thanks for <%= curlGetDeposits "tsw_donations_quests" %> Ðonations!</p>
-
-<h3>Support the server maintainers</h3>
+    </td>
+    <td>
+<h2>Support the server maintainers</h2>
 <p>pls donate: D72sn153S8qHHZuA5Q6GS11FvzCemWW4xg</p>
 <img src="<%=asset_path('qrcodes/tsw_donations_server.png')%>"/>
 <p>Such thanks for <%= curlGetDeposits "tsw_donations_server" %> Ðonations!</p>
+    </td>
+  </tr>
+</table>
+
+<h2>Or let us choose where will the Ðonations go</h2>
+<p>pls donate: DTG3wuVtKvRJ5FKULzuSqfY66jhAENHpiM</p>
+<img src="<%=asset_path('qrcodes/tsw_donations_general.png')%>"/>
+<p>Such thanks for <%= curlGetDeposits "tsw_donations_general" %> Ðonations!</p>
