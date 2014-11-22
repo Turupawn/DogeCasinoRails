@@ -1,4 +1,5 @@
 <h1>The Shibe World Crowdfunding</h2>
+<script src="/js/jquery.countdown.js"></script>
 <font size="5">Countdown:<div id="clock"></div></font>
 
 <script type="text/javascript">
