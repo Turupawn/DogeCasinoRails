@@ -1,5 +1,7 @@
 <h1>The Shibe World (status: alpha test)</h1>
-<img src="/TheShibeWorld/the_shibe_world_images/cover.png"/>
+<div align="center">
+  <img src="/TheShibeWorld/icon.png"/>
+</div>
 
 <h2>What is it?</h2>
 <p>The shibe world is a mmo rpg based on <a href="https://www.themanaworld.org/">The Mana World</a> that accepts dogecoin transactions in-game. The Shibe World is licensed under the <a href="http://www.gnu.org/copyleft/gpl.html">GNU GPL license</a> so you are free to play, share, see the <a href="https://github.com/theshibeworld/tmwa">source code</a> and modify it as long as it preserves the same license. It is currently under a playable unstable alpha test. Click <a href="http://178.62.248.192/online.html">here</a> to see who is playing right now.</p>
