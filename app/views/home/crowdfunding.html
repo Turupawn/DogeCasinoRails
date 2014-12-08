@@ -32,7 +32,7 @@ $('#clock').countdown('2015/1/8', function(event) {
 <p>The graphic designers can make more dogecoin related NPCs, enemies and maps.</p>
 <p>pls donate: DCKPziipnJcYfh9v5PMUBMkQhd3tBtgjbT</p>
 <img src="<%=asset_path('qrcodes/tsw_donations_graphics.png')%>"/>
-<p>Such thanks for <%= curlGetDeposits "tsw_donations_graphics" %> Ðonations! <%= 100000-(curlGetDeposits "tsw_donations_graphics")%100000 %>Ð left for a new feature! </p>
+<p>Such thanks for <%= curlGetDeposits "tsw_donations_graphics" %> Ðonations! <%= 100000-(curlGetDeposits "tsw_donations_graphics")%100000 %>Ð left for a new NPC or house! </p>
 <table>
   <tr>
     <td width=200 style="border: 2px solid silver;padding:none"><hr style="color:0c0f;background-color:#0c0;height:15px; border:none;margin:0;" align="left" width=<%= ((curlGetDeposits "tsw_donations_graphics")%100000.0)*100/100000.0 %>% />
@@ -48,10 +48,10 @@ $('#clock').countdown('2015/1/8', function(event) {
 <p>The quest makers can add Dogecoin related quests to the game.</p>
 <p>pls donate: D66ggvqD36bDnoGE5xs9DZU8rLBenbS5F3</p>
 <img src="<%=asset_path('qrcodes/tsw_donations_quests.png')%>"/>
-<p>Such thanks for <%= curlGetDeposits "tsw_donations_quests" %> Ðonations! <%= 100000-((curlGetDeposits "tsw_donations_quests") + 530000)%100000 %>Ð left for a new feature! </p>
+<p>Such thanks for <%= curlGetDeposits "tsw_donations_quests" %> Ðonations! <%= 100000-(curlGetDeposits "tsw_donations_quests")%100000 %>Ð left for a new quest! </p>
 <table>
   <tr>
-    <td width=200 style="border: 2px solid silver;padding:none"><hr style="color:0c0f;background-color:#0c0;height:15px; border:none;margin:0;" align="left" width=<%= ((curlGetDeposits "tsw_donations_quests") + 530000)%100000.0)*100/100000.0 %>% />
+    <td width=200 style="border: 2px solid silver;padding:none"><hr style="color:0c0f;background-color:#0c0;height:15px; border:none;margin:0;" align="left" width=<%= ((curlGetDeposits "tsw_donations_quests")%100000.0)*100/100000.0 %>% />
     </td>   
   </tr>
 </table>
@@ -63,7 +63,7 @@ $('#clock').countdown('2015/1/8', function(event) {
 <p>The current monthly server cost is 20$, with your help we can get an extra testing server to keep the official server safe.</p>
 <p>pls donate: D72sn153S8qHHZuA5Q6GS11FvzCemWW4xg</p>
 <img src="<%=asset_path('qrcodes/tsw_donations_server.png')%>"/>
-<p>Such thanks for <%= curlGetDeposits "tsw_donations_server" %> Ðonations!<%= 100000-(curlGetDeposits "tsw_donations_server")%100000 %>Ð left for a new feature! </p>
+<p>Such thanks for <%= curlGetDeposits "tsw_donations_server" %> Ðonations! <%= 100000-(curlGetDeposits "tsw_donations_server")%100000 %>Ð left for a live month! </p>
 <table>
   <tr>
     <td width=200 style="border: 2px solid silver;padding:none"><hr style="color:0c0f;background-color:#0c0;height:15px; border:none;margin:0;" align="left" width=<%= ((curlGetDeposits "tsw_donations_server")%100000.0)*100/100000.0 %>% />
