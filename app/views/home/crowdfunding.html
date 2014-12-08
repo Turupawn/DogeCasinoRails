@@ -15,10 +15,14 @@ $('#clock').countdown('2015/1/8', function(event) {
   <tr>
     <td>
 <h2>Support the coders</h2>
-<p>The coders can more Dogecoin interactions in-game.</p>
+<p>The coders can make more Dogecoin interactions in-game.</p>
 <p>pls donate: DEp7ThQS9aK9EkFBEBsh2Tdj9LcRzrBGSa</p>
 <img src="<%=asset_path('qrcodes/tsw_donations_code.png')%>"/>
-<p>Such thanks for <%= curlGetDeposits "tsw_donations_code" %> Ðonations!</p>
+<p>Such thanks for <%= curlGetDeposits "tsw_donations_code" %> Ðonations! <%= (curlGetDeposits "tsw_donations_code")%500000 %>Ð left for a new feature! </p>
+<table><tr>
+    <td width=200 style="border: 2px solid silver;padding:none"><hr style="color:0c0f;background-color:#0c0;height:15px; border:none;margin:0;" align="left" width=<%= (curlGetDeposits "tsw_donations_code")%500000 %>% /></td>   
+    </tr></table>
+
     </td>
     <td>
 <h2>Support the graphic designers and map editors</h2>
