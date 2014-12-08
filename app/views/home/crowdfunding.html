@@ -48,7 +48,7 @@ $('#clock').countdown('2015/1/8', function(event) {
 <p>The quest makers can add Dogecoin related quests to the game.</p>
 <p>pls donate: D66ggvqD36bDnoGE5xs9DZU8rLBenbS5F3</p>
 <img src="<%=asset_path('qrcodes/tsw_donations_quests.png')%>"/>
-<p>Such thanks for <%= curlGetDeposits "tsw_donations_quests" %> Ðonations! <%= 100000-(curlGetDeposits "tsw_donations_quests" + 530000)%100000 %>Ð left for a new feature! </p>
+<p>Such thanks for <%= curlGetDeposits "tsw_donations_quests" %> Ðonations! <%= 100000-((curlGetDeposits "tsw_donations_quests") + 530000)%100000 %>Ð left for a new feature! </p>
 <table>
   <tr>
     <td width=200 style="border: 2px solid silver;padding:none"><hr style="color:0c0f;background-color:#0c0;height:15px; border:none;margin:0;" align="left" width=<%= ((curlGetDeposits "tsw_donations_quests")%100000.0)*100/100000.0 %>% />
